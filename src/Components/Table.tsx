@@ -49,6 +49,11 @@ export default function DataTable() {
     }, []);
     return (
         <div style={{ height: 600, width: '100%' }}>
+            <header>
+                <h1>Online Members</h1>
+                <b>{onlines.druid.length + onlines.sorcerer.length + onlines.kinight.length + onlines.paladin.length}</b>
+            </header>
+
             <h1>EK's</h1>
             <DataGrid
                 rows={onlines.kinight}
