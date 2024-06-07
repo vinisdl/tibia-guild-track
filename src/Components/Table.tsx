@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
-import { DataGrid, GridColDef } from '@mui/x-data-grid';
+import { DataGrid, GridApi, GridColDef } from '@mui/x-data-grid';
+import { Button } from "@mui/material";
 
 interface Onlines {
     kinight: member[];
@@ -21,6 +22,23 @@ interface member {
 const columns: GridColDef[] = [
     { field: 'name', headerName: 'Name', width: 200 },
     { field: 'level', headerName: 'Level', width: 130 },
+    {
+        field: "action",
+        headerName: "Exiva",
+        sortable: false,
+        renderCell: (params: any) => {
+            const onClick = (e: React.MouseEvent) => {
+                const currentRow = params.row;
+                navigator.clipboard.writeText(`exiva "${currentRow.name}"`);
+
+            };
+
+            return (
+                <Button variant="outlined" color="warning" size="small" onClick={onClick}>Exiva</Button>
+            );
+        },
+        width: 130
+    }
 ];
 
 
@@ -85,6 +103,7 @@ export default function DataTable() {
                 }}
                 pageSizeOptions={[5, 10]}
                 getRowId={(row: any) => row.name}
+
             />
             <h1>RP's</h1>
             <DataGrid
