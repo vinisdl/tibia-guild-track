@@ -54,7 +54,7 @@ export default function DataTable() {
             // Await make wait until that 
             // promise settles and return its result 
             const response = await axios.get<TibiaData>(
-                "https://api.tibiadata.com/v4/guild/Honbraland%20encore"
+                "https://api.tibiadata.com/v4/guild/obscubra%20pune"
             );
 
 
